@@ -1,0 +1,45 @@
+﻿@model ProjetoTesteEmMVC.Models.UsersModel
+
+@{
+    ViewData["Title"] = "CriarUsuario";
+}
+
+<h1>CriarUsuario</h1>
+
+<h4>UsersModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CriarUsuario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SuperNome" class="control-label"></label>
+                <input asp-for="SuperNome" class="form-control" />
+                <span asp-validation-for="SuperNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdentidadeSecreta" class="control-label"></label>
+                <input asp-for="IdentidadeSecreta" class="form-control" />
+                <span asp-validation-for="IdentidadeSecreta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poder" class="control-label"></label>
+                <input asp-for="Poder" class="form-control" />
+                <span asp-validation-for="Poder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

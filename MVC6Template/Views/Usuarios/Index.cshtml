@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProjetoTesteEmMVC.Models.UsersModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>lista de Personagens</h1>
+
+<p>
+    <div class="">
+        <a class="btn btn-primary btn-lg btnAdicionar" role="button" asp-controller="Usuarios" asp-action="CriarUsuario">Adicionar Usuarios </a>
+    </div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SuperNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentidadeSecreta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuperNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentidadeSecreta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poder)
+            </td>
+            <td>
+                
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-primary" asp-controller="Usuarios" asp-action="Editar">Editar</a>
+                       
+                <td>@Html.ActionLink("Excluir", "Excluir", "Usuarios", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })</td>
+                    </div>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
